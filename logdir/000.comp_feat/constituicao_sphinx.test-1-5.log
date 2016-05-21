@@ -1,0 +1,122 @@
+Current configuration:
+[NAME]			[DEFLT]		[VALUE]
+-alpha			0.97		9.700000e-01
+-argfile				
+-blocksize		2048		2048
+-build_outdirs		yes		yes
+-c					/home/lapf/Desktop/TCCtest/Sphinx/etc/constituicao_sphinx_test.fileids
+-cep2spec		no		no
+-di					/home/lapf/Desktop/TCCtest/Sphinx/wav
+-dither			no		no
+-do					/home/lapf/Desktop/TCCtest/Sphinx/feat
+-doublebw		no		no
+-ei					wav
+-eo					mfc
+-example		no		no
+-frate			100		100
+-help			no		no
+-i					
+-input_endian		little		little
+-lifter			0		22
+-logspec		no		no
+-lowerf			133.33334	1.300000e+02
+-mach_endian		little		little
+-mswav			no		yes
+-ncep			13		13
+-nchans			1		1
+-nfft			512		512
+-nfilt			40		25
+-nist			no		no
+-npart			0		5
+-nskip			0		0
+-o					
+-ofmt			sphinx		sphinx
+-part			0		1
+-raw			no		no
+-remove_dc		no		no
+-remove_noise		yes		yes
+-remove_silence		yes		yes
+-round_filters		yes		yes
+-runlen			-1		-1
+-samprate		16000		1.600000e+04
+-seed			-1		-1
+-smoothspec		no		no
+-spec2cep		no		no
+-sph2pipe		no		no
+-transform		legacy		dct
+-unit_area		yes		yes
+-upperf			6855.4976	6.800000e+03
+-vad_postspeech		50		50
+-vad_prespeech		20		20
+-vad_startspeech	10		10
+-vad_threshold		2.0		2.000000e+00
+-verbose		no		no
+-warp_params				
+-warp_type		inverse_linear	inverse_linear
+-whichchan		0		0
+-wlen			0.025625	2.562500e-02
+
+INFO: sphinx_fe.c(953): Processing 31 utterances at position 0
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art160a.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art160a.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art160a.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art192b.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art192b.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art192b.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art239c.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art239c.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art239c.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art182b.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art182b.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art182b.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art212c.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art212c.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art212c.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art021b.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art021b.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art021b.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art223b.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art223b.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art223b.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art056a.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art056a.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art056a.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art201c.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art201c.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art201c.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art049d.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art049d.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art049d.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art030c.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art030c.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art030c.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/dt012a.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/dt012a.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/dt012a.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art233.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art233.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art233.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art115a.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art115a.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art115a.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art177e.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art177e.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art177e.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/dt044b.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/dt044b.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/dt044b.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art057g.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art057g.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art057g.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art117.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art117.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art117.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art032b.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art032b.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art032b.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art111-.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art111-.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art111-.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art151b.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art151b.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art151b.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art247a.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art247a.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art247a.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art029e.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art029e.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art029e.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art145b.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art145b.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art145b.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/dt075b.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/dt075b.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/dt075b.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art144a.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art144a.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art144a.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art040q.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art040q.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art040q.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art236a.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art236a.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art236a.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art051a.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art051a.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art051a.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art167f.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/art167f.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/art167f.mfc.wav: No such file or directory
+INFO: sphinx_fe.c(764): Converting /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/dt051a.mfc.wav to /home/lapf/Desktop/TCCtest/Sphinx/feat/constituicao16k/dt051a.mfc.mfc
+ERROR: "sphinx_fe.c", line 118: Failed to open /home/lapf/Desktop/TCCtest/Sphinx/wav/constituicao16k/dt051a.mfc.wav: No such file or directory
+Wed May 18 20:48:06 2016

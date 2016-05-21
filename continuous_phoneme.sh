@@ -1,0 +1,1 @@
+pocketsphinx_continuous -infile teste.raw -hmm model/en-us/en-us -allphone model/en-us/en-us-phone.lm.bin -backtrace yes -beam 1e-20 -pbeam 1e-20 -lw 2.0

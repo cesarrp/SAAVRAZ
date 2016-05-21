@@ -1,0 +1,6 @@
+        Decoding 31 segments starting at 124 (part 5 of 5) 
+      00%EERROR: FATAL: "batch.c", line 822: PocketSphinx decoder init failed
+
+ERROR: This step had 1 ERROR messages and 0 WARNING messages.  Please check the log file for details.
+ERROR: Failed to start pocketsphinx_batch
+
