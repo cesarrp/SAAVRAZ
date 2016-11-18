@@ -1,73 +1,39 @@
+Using pyAudioAnalysis with some modifications for everything but audio segmentation
+*pyAudioAnalysis wiki. Click [here] (https://github.com/tyiannak/pyAudioAnalysis/wiki) for the complete wiki*
 
-# <img src="icon.png" align="left" height="130"/> A Python library for audio feature extraction, classification, segmentation and applications
+Full script so far (sample/analysis_tipe.txt):
 
-*This doc contains general info. Click [here] (https://github.com/tyiannak/pyAudioAnalysis/wiki) for the complete wiki*
+for file in ../pt_data/*.wav; do filename=$(basename "$file"); filename="${filename%.*}"; auditok -i $file -o $filename"_{N}_{start}_seg.wav"; done;
 
-## News
- * September 2016: New segment classifiers (from sklearn): random forests, extra trees and gradient boosting
- * August 2016: Update: mlpy no longer used. SVMs, PCA, etc performed through scikit-learn 
- * August 2016: Update: Dependencies have been simplified 
- * January 2016: [PLOS-One Paper regarding pyAudioAnalysis] (http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144610) *(please cite!)*
+for file in *.wav; do
+echo "file spectogram"
+python ../audioAnalysis.py fileSpectrogram -i $file;
 
-## General
-pyAudioAnalysis is a Python library covering a wide range of audio analysis tasks. Through pyAudioAnalysis you can:
- * Extract audio *features* and representations (e.g. mfccs, spectrogram, chromagram)
- * *Classify* unknown sounds
- * *Train*, parameter tune and *evaluate* classifiers of audio segments
- * *Detect* audio events and exclude silence periods from long recordings
- * Perform *supervised segmentation* (joint segmentation - classification)
- * Perform *unsupervised segmentation* (e.g. speaker diarization)
- * Extract audio *thumbnails*
- * Train and use *audio regression* models (example application: emotion recognition)
- * Apply dimensionality reduction to *visualize* audio data and content similarities
+echo "python ../audioAnalysis.py trainClassifier -i <directory1> ... <directoryN> --method <svm, knn, extratrees, gradientboosting or randomforest> -o <modelName> --beat (optional for beat extraction)"
 
-## Installation
- * Install dependencies:
- ```
-pip install numpy matplotlib scipy sklearn hmmlearn simplejson eyed3
-```
- * Clone the source of this library: 
- ```
-git clone https://github.com/tyiannak/pyAudioAnalysis.git
-```
+echo "create classes for regression (-o: output)"
+echo "python ../audioAnalysis.py trainRegression -i ../pt_data/ --method svm -o ../data/svmSpeechEmotion"
 
-## An audio classification example
-> More examples and detailed tutorials can be found [at the wiki] (https://github.com/tyiannak/pyAudioAnalysis/wiki)
+echo "classifying into classes in trained regression"
+echo "python ../audioAnalysis.py classifyFile -i <inputFilePath> --model <svm, knn, extratrees, gradientboosting or randomforest> --classifier <pathToClassifierModeL>"
+python ../audioAnalysis.py classifyFile -i $file --model svm --classifier ../data/svmSM
+python ../audioAnalysis.py classifyFile -i $file --model knn --classifier ../data/knnSM
+python ../audioAnalysis.py classifyFile -i $file --model extratrees --classifier ../data/etSM
+python ../audioAnalysis.py classifyFile -i $file --model gradientboosting --classifier ../data/gbSM
+python ../audioAnalysis.py classifyFile -i $file --model randomforest --classifier ../data/rfSM
+python ../audioAnalysis.py classifyFile -i $file --model svm --classifier ../data/svmMovies8classes
+python ../audioAnalysis.py classifyFile -i $file --model knn --classifier ../data/knnMovies8classes
+python ../audioAnalysis.py classifyFile -i $file --model knn --classifier ../data/knnSpeakerAll
 
-pyAudioAnalysis provides easy-to-call wrappers to execute audio analysis tasks. Eg, this code first trains an audio segment classifier, given a set of WAV files stored in folders (each folder representing a different class) and then the trained classifier is used to classify an unknown audio WAV file
+echo "single file regression"
+python ../audioAnalysis.py regressionFile -i $file --model svm --regression ../data/svmSpeechEmotion
 
-```
-from pyAudioAnalysis import audioTrainTest as aT
-aT.featureAndTrain(["classifierData/music","classifierData/speech"], 1.0, 1.0, aT.shortTermWindow, aT.shortTermStep, "svm", "svmSMtemp", False)
-aT.fileClassification("data/doremi.wav", "svmSMtemp","svm")
-Result:
-(0.0, array([ 0.90156761,  0.09843239]), ['music', 'speech'])
-```
+echo "file segmentation into trained regression classes"
+python ../audioAnalysis.py segmentClassifyFile -i $file --model svm --modelName ../data/svmSM
 
-In addition, command-line support is provided for all functionalities. E.g. the following command extracts the spectrogram of an audio signal stored in a WAV file: `python audioAnalysis.py fileSpectrogram -i data/doremi.wav`
+echo "generate audio thumbnail"
+echo "python ../audioAnalysis.py thumbnail -i <wavFileName> --size <thumbnailDuration>"
+python ../audioAnalysis.py thumbnail -i $file
 
-## Further reading
-Apart from the current README file and [the wiki] (https://github.com/tyiannak/pyAudioAnalysis/wiki), a more general and theoretic description of the adopted methods (along with several experiments on particular use-cases) is presented [in this publication] (http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0144610). Please use the following citation when citing pyAudioAnalysis in your research work:
-```
-@article{giannakopoulos2015pyaudioanalysis,
-  title={pyAudioAnalysis: An Open-Source Python Library for Audio Signal Analysis},
-  author={Giannakopoulos, Theodoros},
-  journal={PloS one},
-  volume={10},
-  number={12},
-  year={2015},
-  publisher={Public Library of Science}
-}
-```
-
-Finally, for Matlab-related audio analysis material check  [this book](http://www.amazon.com/Introduction-Audio-Analysis-MATLAB%C2%AE-Approach/dp/0080993885).
-
-## Author
-<img src="http://cgi.di.uoa.gr/~tyiannak/image.jpg" align="left" height="100"/>
-
-[Theodoros Giannakopoulos] (http://www.di.uoa.gr/~tyiannak), 
-Postdoc researcher at NCSR Demokritos, 
-Athens,
-Greece
-
-
+echo "TODO hmm and default classifiers";
+done
