@@ -1,0 +1,1 @@
+for to_rm in $(auditok -i ../pt_data/CAGO.wav -e 70 -o {N}_CAGO_{start}_seg.wav | awk '{print ($($3 - $2) < 2) ? "" : $1 }'); do echo $to_rm"_*.wav"; done

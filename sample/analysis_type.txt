@@ -1,4 +1,9 @@
-for file in ../pt_data/*.wav; do filename=$(basename "$file"); filename="${filename%.*}"; auditok -i $file -o $filename"_{N}_{start}_seg.wav"; done;
+for file in ../pt_data/*.wav; do filename=$(basename "$file"); 
+	filename="${filename%.*}"; 
+	for to_rm in $(auditok -i $file -e 70 --save-image $filename"_fullSegmentation.png" -o "{N}_"$filename"_{start}_seg.wav" | awk '{print ($($3 - $2) < 2) ? "" : $1 }');
+	do rm $(echo $to_rm"_*.wav"); 
+	done;
+done;
 
 for file in *.wav; do
 echo "file spectogram"
