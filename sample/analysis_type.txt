@@ -1,39 +1,44 @@
-for file in ../pt_data/*.wav; do filename=$(basename "$file"); 
-	filename="${filename%.*}"; 
-	for to_rm in $(auditok -i $file -e 70 --save-image $filename"_fullSegmentation.png" -o "{N}_"$filename"_{start}_seg.wav" | awk '{print ($($3 - $2) < 2) ? "" : $1 }');
-	do rm $(echo $to_rm"_*.wav"); 
+for file in ../pt_data/*.wav;	do 
+filename=$(basename "$file");         
+	filename="${filename%.*}";
+	mkdir $filename"_audioSegs"; 
+	auditok -i $file -e 70 -m 10 --save-image $filename"_fullSegmentation.png" -o $filename"_audioSegs/"$filename"_{N}_{start}_seg.wav";
+	for to_rm in $(ls $(echo $filename"_audioSegs/*.wav")); do
+		if [ $(expr $(soxi -D $to_rm) '<' 2.0) -eq 1 ];	then
+			echo $to_rm;
+		fi;
+	done;
+	for file in $filename"_audioSegs/*.wav";	do
+
+	echo "file spectogram"
+	python ../audioAnalysis.py fileSpectrogram -i $file;
+
+	echo "python ../audioAnalysis.py trainClassifier -i <directory1> ... <directoryN> --method <svm, knn, extratrees, gradientboosting or randomforest> -o <modelName> --beat (optional for beat extraction)"
+
+	echo "create classes for regression (-o: output)"
+	echo "python ../audioAnalysis.py trainRegression -i ../pt_data/ --method svm -o ../data/svmSpeechFluency"
+
+	echo "classifying into classes in trained regression"
+	echo "python ../audioAnalysis.py classifyFile -i <inputFilePath> --model <svm, knn, extratrees, gradientboosting or randomforest> --classifier <pathToClassifierModeL>"
+	python ../audioAnalysis.py classifyFile -i $file --model svm --classifier ../data/svmSM
+	python ../audioAnalysis.py classifyFile -i $file --model knn --classifier ../data/knnSM
+	python ../audioAnalysis.py classifyFile -i $file --model extratrees --classifier ../data/etSM
+	python ../audioAnalysis.py classifyFile -i $file --model gradientboosting --classifier ../data/gbSM
+	python ../audioAnalysis.py classifyFile -i $file --model randomforest --classifier ../data/rfSM
+	python ../audioAnalysis.py classifyFile -i $file --model svm --classifier ../data/svmMovies8classes
+	python ../audioAnalysis.py classifyFile -i $file --model knn --classifier ../data/knnMovies8classes
+	python ../audioAnalysis.py classifyFile -i $file --model knn --classifier ../data/knnSpeakerAll
+
+	echo "single file regression"
+	python ../audioAnalysis.py regressionFile -i $file --model svm --regression ../data/svmSpeechEmotion
+
+	echo "file segmentation into trained regression classes"
+	python ../audioAnalysis.py segmentClassifyFile -i $file --model svm --modelName ../data/svmSM
+
+	echo "generate audio thumbnail"
+	echo "python ../audioAnalysis.py thumbnail -i <wavFileName> --size <thumbnailDuration>"
+	python ../audioAnalysis.py thumbnail -i $file
+
+	echo "TODO hmm and default classifiers";
 	done;
 done;
-
-for file in *.wav; do
-echo "file spectogram"
-python ../audioAnalysis.py fileSpectrogram -i $file;
-
-echo "python ../audioAnalysis.py trainClassifier -i <directory1> ... <directoryN> --method <svm, knn, extratrees, gradientboosting or randomforest> -o <modelName> --beat (optional for beat extraction)"
-
-echo "create classes for regression (-o: output)"
-echo "python ../audioAnalysis.py trainRegression -i ../pt_data/ --method svm -o ../data/svmSpeechEmotion"
-
-echo "classifying into classes in trained regression"
-echo "python ../audioAnalysis.py classifyFile -i <inputFilePath> --model <svm, knn, extratrees, gradientboosting or randomforest> --classifier <pathToClassifierModeL>"
-python ../audioAnalysis.py classifyFile -i $file --model svm --classifier ../data/svmSM
-python ../audioAnalysis.py classifyFile -i $file --model knn --classifier ../data/knnSM
-python ../audioAnalysis.py classifyFile -i $file --model extratrees --classifier ../data/etSM
-python ../audioAnalysis.py classifyFile -i $file --model gradientboosting --classifier ../data/gbSM
-python ../audioAnalysis.py classifyFile -i $file --model randomforest --classifier ../data/rfSM
-python ../audioAnalysis.py classifyFile -i $file --model svm --classifier ../data/svmMovies8classes
-python ../audioAnalysis.py classifyFile -i $file --model knn --classifier ../data/knnMovies8classes
-python ../audioAnalysis.py classifyFile -i $file --model knn --classifier ../data/knnSpeakerAll
-
-echo "single file regression"
-python ../audioAnalysis.py regressionFile -i $file --model svm --regression ../data/svmSpeechEmotion
-
-echo "file segmentation into trained regression classes"
-python ../audioAnalysis.py segmentClassifyFile -i $file --model svm --modelName ../data/svmSM
-
-echo "generate audio thumbnail"
-echo "python ../audioAnalysis.py thumbnail -i <wavFileName> --size <thumbnailDuration>"
-python ../audioAnalysis.py thumbnail -i $file
-
-echo "TODO hmm and default classifiers";
-done
